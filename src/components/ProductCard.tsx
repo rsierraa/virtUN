@@ -9,8 +9,8 @@ interface ProductCardProps {
 
 //we pass the product props to the component (name, description, price and image)
 export default function ProductCard({ product }: ProductCardProps) {
-    //if the product was created less than 7 days ago, we show a new badge!!
-    const isNew = Date.now() - new Date(product.createdAt).getTime() < 1000 * 60 * 60 * 24 * 7;
+    //if the product was created less than 3 days ago, we show a new badge!!
+    const isNew = Date.now() - new Date(product.createdAt).getTime() < 1000 * 60 * 60 * 24 * 3;
   return (
     <Link
       href={`/products/${product.id}`}
