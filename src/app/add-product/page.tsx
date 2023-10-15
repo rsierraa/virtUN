@@ -1,6 +1,8 @@
 import FormSubmitButton from "@/components/FormSubmitButton";
 import { prisma } from "@/lib/db/prisma";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "Agregar Producto - VirtUN",
@@ -9,6 +11,11 @@ export const metadata = {
 //nextjs experimental server action :)
 async function addProduct(formData: FormData) {
   "use server";
+
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
+  }
 
   const name = formData.get("name")?.toString();
   const description = formData.get("description")?.toString();
@@ -35,7 +42,13 @@ async function addProduct(formData: FormData) {
   redirect("/");
 }
 
-export default function AddProductPage() {
+export default async function AddProductPage() {
+const session = await getServerSession(authOptions);
+
+if(!session){
+  redirect("/api/auth/signin?callbackUrl=/add-product");
+}
+
   // All those mb-3 etc are Tailwind CSS classes ;)
   return (
     <div>

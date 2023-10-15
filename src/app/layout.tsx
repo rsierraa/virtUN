@@ -1,8 +1,9 @@
+//default imports dont have curly braces -Rodrigo
 import Footer from "./Footer";
 import Navbar from "./Navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import {SessionProvider} from "next-auth/react"
+import SessionProvider from "./SessionProvider"
 
 const inter = Inter({ subsets: ["latin"] });
 

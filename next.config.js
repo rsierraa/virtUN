@@ -21,6 +21,7 @@ module.exports = {
         protocol: "https",
         hostname: "plus.unsplash.com",
       },
+      { hostname: "lh3.googleusercontent.com" },
     ],
   },
 };
