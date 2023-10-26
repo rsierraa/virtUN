@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
+//Dinamically render:
 interface HomeProps {
   searchParams: { page: string }
 }
