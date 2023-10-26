@@ -26,4 +26,10 @@ export default function PaginationBar({currentPage, totalPages}: PaginationBarPr
         )
 
     }
+//pagination bar:
+    return(
+        <div className="join">
+            {numberedPageItems}
+        </div>
+    )
 }
