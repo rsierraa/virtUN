@@ -6,8 +6,8 @@ import { Product } from "@prisma/client";
 import ProductCard from "./ProductCard";
 import { Tab } from "@headlessui/react";
 
-interface ProductCardProps {
-  product: Product;
+interface ProductsCardProps {
+  products: Product[];
 }
 
 const caveat = Caveat({
@@ -36,7 +36,7 @@ const initialTabs: Tab[] = [
     title: 'Bebidas',
   },
 ]
-export default function Category({products}) {
+export default function Category({products} : ProductsCardProps) {
 
   const [tabs, setTabs] = useState(initialTabs)
   console.log(products)
