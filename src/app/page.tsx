@@ -1,3 +1,4 @@
+import Category from "@/components/Category";
 import ProductCard from "@/components/ProductCard";
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export default async function Home() {
   return (
     <div style={{ padding: "138px" }}>
       <div className="hero rounded-xl bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
+        <div className="flex-col hero-content lg:flex-row">
           <Image
             src={products[0].imageUrl}
             alt={products[0].name}
@@ -33,11 +34,15 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div className="my-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="hero rounded-xl bg-base-200">
+        {/* <Category productCard={products}/> */}
+        <Category products={products} />
+      </div>
+      {/* <div className="grid grid-cols-1 gap-4 my-4 md:grid-cols-2 xl:grid-cols-3">
         {products.slice(1).map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
