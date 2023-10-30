@@ -1,5 +1,6 @@
 import PaginationBar from "@/components/PaginationBar";
 import ProductCard from "@/components/ProductCard";
+import Category from "@/components/Category";
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,11 +30,8 @@ export default async function Home({searchParams : {page = "1"}}: HomeProps) {
   });
   return (
     <div className="flex flex-col items-center">
-      
-      <div className="my-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+      <div className="hero rounded-xl bg-base-200">
+        <Category products={products} />
       </div>
       {totalPages > 1 && (
       <PaginationBar currentPage={currentPage} totalPages={totalPages} onPageChange={function (page: number): void {

@@ -17,6 +17,7 @@ model Product {
   updatedAt   DateTime   @updatedAt
   //we can fetch all cart items that contain a product, through the product model:
   CartItem    CartItem[]
+  category    String    @default("Entradas")
 
   @@map("products")
 }
@@ -100,3 +101,10 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verificationtokens")
 }
+
+// model Category {
+//   id     String @id @default(auto()) @map("_id") @db.ObjectId
+//   name   String @unique
+//   cartId String @db.ObjectId
+//   cart   Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
+// }

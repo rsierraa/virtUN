@@ -14,7 +14,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/products/${product.id}`}
-      className="card w-full bg-base-100 transition-shadow hover:shadow-xl"
+      className="w-full transition-shadow card bg-base-100 hover:shadow-xl"
     >
       <figure>
         <Image
@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           alt={product.name}
           width={800}
           height={400}
-          className="h-48 object-cover"
+          className="object-cover h-48"
         />
       </figure>
       <div className="card-body">
