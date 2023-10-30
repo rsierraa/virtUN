@@ -39,7 +39,6 @@ const initialTabs: Tab[] = [
 export default function Category({products} : ProductsCardProps) {
 
   const [tabs, setTabs] = useState(initialTabs)
-  console.log(products)
   return (
     <Tab.Group>
       {({ selectedIndex }) => (
@@ -70,6 +69,7 @@ export default function Category({products} : ProductsCardProps) {
                 <Tab.Panel key={index} as={Fragment}>
                   <div className="grid grid-cols-1 gap-4 my-4 md:grid-cols-2 xl:grid-cols-3">
                     {products.filter((product) => product.category === tabs[index].title).map((product) => (
+                      console.log(product,"product"),
                       <ProductCard product={product} key={product.id} />
                     ))}
                   </div>
