@@ -36,6 +36,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </label>
           <input
             type="radio"
+            className="mask mask-star-2 bg-orange-500"
             id={`rating-${product.id}-1`}
             name={`rating-${product.id}`}
             value="1"
@@ -45,6 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </label>
           <input
             type="radio"
+            className="mask mask-star-2 bg-orange-500"
             id={`rating-${product.id}-2`}
             name={`rating-${product.id}`}
             value="2"
@@ -54,6 +56,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </label>
           <input
             type="radio"
+            className="mask mask-star-2 bg-orange-500"
             id={`rating-${product.id}-3`}
             name={`rating-${product.id}`}
             value="3"
@@ -63,6 +66,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </label>
           <input
             type="radio"
+            className="mask mask-star-2 bg-orange-500"
             id={`rating-${product.id}-4`}
             name={`rating-${product.id}`}
             value="4"
@@ -72,6 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </label>
           <input
             type="radio"
+            className="mask mask-star-2 bg-orange-500"
             id={`rating-${product.id}-5`}
             name={`rating-${product.id}`}
             value="5"
