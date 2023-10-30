@@ -24,9 +24,10 @@ async function addProduct(formData: FormData) {
   //const imageId = formData.get("imageId")?.toString();
   //const imageUrl = imageId ? `https://drive.google.com/uc?id=${imageId}` : undefined;
   const price = Number(formData.get("price") || 0);
+  const category = formData.get("category")?.toString();
 
   // client side validations:
-  if (!name || !description || !imageUrl || !price) {
+  if (!name || !description || !imageUrl || !price || !category) {
     throw Error("Missing required fields");
   }
 
@@ -36,6 +37,7 @@ async function addProduct(formData: FormData) {
       description,
       imageUrl,
       price,
+      category,
     },
   });
 
@@ -43,11 +45,11 @@ async function addProduct(formData: FormData) {
 }
 
 export default async function AddProductPage() {
-const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-if(!session){
-  redirect("/api/auth/signin?callbackUrl=/add-product");
-}
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/add-product");
+  }
 
   // All those mb-3 etc are Tailwind CSS classes ;)
   return (
@@ -58,29 +60,42 @@ if(!session){
           required
           name="name"
           placeholder="Name"
-          className="input-bordered input mb-3 w-full"
+          className="w-full mb-3 input-bordered input"
         />
         <textarea
           required
           name="description"
           placeholder="Description"
-          className="textarea-bordered textarea mb-3 w-full"
+          className="w-full mb-3 textarea-bordered textarea"
         />
         <input
           required
           name="imageUrl"
           placeholder="Image URL"
           type="url"
-          className="input-bordered input mb-3 w-full"
+          className="w-full mb-3 input-bordered input"
         />
         <input
           required
           name="price"
           placeholder="Price"
           type="number"
-          className="input-bordered input mb-3 w-full"
+          className="w-full mb-3 input-bordered input"
         />
-        <FormSubmitButton className=" btn-block ">Add Product</FormSubmitButton>
+        <div className="flex items-center gap-2 my-1">
+          Categoria:
+          <select
+            className="select-bordered select w-full max-w-[150px]"
+            name="category"
+            defaultValue={"Entrada"}
+            >
+            <option value={"Entradas"}>Entradas</option>
+            <option value={"Platos fuertes"}>Platos fuertes</option>
+            <option value={"Postres"}>Postres</option>
+            <option value={"Bebidas"}>Bebidas</option>
+          </select>
+        </div>
+        <FormSubmitButton className=" btn-block">Add Product</FormSubmitButton>
       </form>
     </div>
   );

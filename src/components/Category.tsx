@@ -66,10 +66,11 @@ export default function Category({products} : ProductsCardProps) {
           {/* Tab panels */}
           <Tab.Panels>
             <div className="relative flex flex-col">
-              {tabs.map((tab, index) => (
+              {tabs.map((_, index) => (
                 <Tab.Panel key={index} as={Fragment}>
                   <div className="grid grid-cols-1 gap-4 my-4 md:grid-cols-2 xl:grid-cols-3">
                     {products.filter((product) => product.category === tabs[index].title).map((product) => (
+                      console.log(product.category, tabs[index].title),
                       <ProductCard product={product} key={product.id} />
                     ))}
                   </div>
