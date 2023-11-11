@@ -30,7 +30,7 @@ export default async function Home({searchParams : {page = "1"}}: HomeProps) {
   });
   return (
     <div className="flex flex-col items-center">
-      <div className="hero rounded-xl bg-base-200">
+      <div className="rounded-xl bg-base-200">
         <Category products={products} />
       </div>
       {totalPages > 1 && (

@@ -2,7 +2,7 @@ import { Product } from "@prisma/client";
 import Link from "next/link";
 import PriceTag from "./PriceTag";
 import Image from "next/image";
-
+import {Rating} from "@mui/material";
 interface ProductCardProps {
   product: Product;
 }
@@ -31,58 +31,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h2 className="card-title">{product.name}</h2>
         {isNew && <div className="badge badge-secondary">NUEVO</div>}
         <div>
-          <label htmlFor={`rating-${product.id}-1`} className="sr-only">
-            Rating 1
-          </label>
-          <input
-            type="radio"
-            className="mask mask-star-2 bg-orange-500"
-            id={`rating-${product.id}-1`}
-            name={`rating-${product.id}`}
-            value="1"
-          />
-          <label htmlFor={`rating-${product.id}-2`} className="sr-only">
-            Rating 2
-          </label>
-          <input
-            type="radio"
-            className="mask mask-star-2 bg-orange-500"
-            id={`rating-${product.id}-2`}
-            name={`rating-${product.id}`}
-            value="2"
-          />
-          <label htmlFor={`rating-${product.id}-3`} className="sr-only">
-            Rating 3
-          </label>
-          <input
-            type="radio"
-            className="mask mask-star-2 bg-orange-500"
-            id={`rating-${product.id}-3`}
-            name={`rating-${product.id}`}
-            value="3"
-          />
-          <label htmlFor={`rating-${product.id}-4`} className="sr-only">
-            Rating 4
-          </label>
-          <input
-            type="radio"
-            className="mask mask-star-2 bg-orange-500"
-            id={`rating-${product.id}-4`}
-            name={`rating-${product.id}`}
-            value="4"
-          />
-          <label htmlFor={`rating-${product.id}-5`} className="sr-only">
-            Rating 5
-          </label>
-          <input
-            type="radio"
-            className="mask mask-star-2 bg-orange-500"
-            id={`rating-${product.id}-5`}
-            name={`rating-${product.id}`}
-            value="5"
-          />
+          <Rating value={4} readOnly />
         </div>
-
         <p>{product.description}</p>
         <PriceTag price={product.price} />
       </div>
