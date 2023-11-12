@@ -7,6 +7,8 @@ import { cache } from "react";
 import AddProductPage from "@/app/add-product/page";
 import AddToCartButton from "./AddToCartButton";
 import { incrementProductQuantity } from "./actions";
+import { Rating } from "@mui/material";
+import ListRating from "./ListRating";
 
 interface ProductPageProps {
     params: {
@@ -16,7 +18,7 @@ interface ProductPageProps {
 
 //in order to deduplicate the metadata generation, we use a React function for this: we use the cache function from react-query to cache the product data and the metadata in memory so that we don't have to fetch it twice
 const getProduct = cache(async (id: string) => {
-    const product = await prisma.product.findUnique({ where: { id } });
+    const product = await prisma.product.findUnique({ where: { id }, include: {reviews: true} });
     if (!product) notFound();
     return product;
 })
@@ -42,6 +44,9 @@ export default async function ProductPage({params: {id}}: ProductPageProps) {
     
     const product = await getProduct(id);
 
+    const productRating = product.reviews.reduce((acc:number, item:any) => item.rating + acc, 0) /product.reviews.length
+
+
     return(
         <div className="flex flex-col lg:flex-row gap-4 lg:items-center">
             <Image
@@ -55,6 +60,14 @@ export default async function ProductPage({params: {id}}: ProductPageProps) {
             <div>
                 <h1 className="text-5xl font-bold">{product.name}</h1>
                 <PriceTag price={product.price} className="mt-4" />
+                <div className="flex flex-col gap-1 text-slate-500 text-sm">
+                    <Rating value={productRating} readOnly />
+                    <div>{product.reviews.length} reviews</div>
+                </div>
+                <div>
+                    Add Rating
+                </div>
+                <ListRating product={product}/>
                 <p className="py-6">{product.description}</p>
                 <AddToCartButton productId={product.id} incrementProductQuantity={incrementProductQuantity}/>
             </div>

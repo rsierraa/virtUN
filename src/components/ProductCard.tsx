@@ -9,6 +9,10 @@ interface ProductCardProps {
 
 //we pass the product props to the component (name, description, price and image)
 export default function ProductCard({ product }: ProductCardProps) {
+//product rating calculation
+//  const productRating = product.reviews.reduce((acc:number, item:any) => item.rating + acc, 0) /product.reviews.length
+
+
   //if the product was created less than 3 days ago, we show a new badge!!
   const isNew =
     Date.now() - new Date(product.createdAt).getTime() <
@@ -31,7 +35,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h2 className="card-title">{product.name}</h2>
         {isNew && <div className="badge badge-secondary">NUEVO</div>}
         <div>
-          <Rating value={4} readOnly />
+          <Rating value={3} readOnly />
+          {/* <Rating value={productRating} readOnly /> */}
         </div>
         <p>{product.description}</p>
         <PriceTag price={product.price} />

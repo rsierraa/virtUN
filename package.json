@@ -38,6 +38,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.17",
     "eslint-config-prettier": "^9.0.0",
+    "moment": "^2.29.4",
     "prisma": "^5.5.2"
   }
 }

@@ -13,6 +13,7 @@ model Product {
   imageUrl    String
   name        String
   rating      Float
+  reviews     Review[]
   price       Int
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
@@ -21,6 +22,18 @@ model Product {
   category    String    @default("Entradas")
 
   @@map("products")
+}
+
+model Review{
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String     @db.ObjectId
+  productId   String     @db.ObjectId
+  rating      Int
+  comment     String
+  createdDate   DateTime   @default(now())
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Cart {
@@ -89,6 +102,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Cart          Cart[]
+  reviews       Review[]
 
   @@map("users")
 }
