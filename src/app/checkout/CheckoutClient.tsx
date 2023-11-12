@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/router";
 import { useEffect ,useState } from "react";
+import { useCart } from "@/app/hooks/useCart";
 
 const CheckoutClient = () => {
   const {cartProducts, paymentIntent, handleSetPaymentIntent} = useCart();
