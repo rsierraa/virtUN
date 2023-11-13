@@ -29,7 +29,7 @@ export default function UserMenuButton({session}: UserMenuButtonProps){
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              className="inline-block h-5 w-5 stroke-current"
+              className="inline-block w-5 h-5 stroke-current"
             >
               <path
                 strokeLinecap="round"
@@ -42,7 +42,7 @@ export default function UserMenuButton({session}: UserMenuButtonProps){
         </label>
         <ul
         tabIndex={0}
-        className="dropdown-content menu rounded-box menu-sm z-30 mt-3 w-52 bg-base-100 p-2 shadow"
+        className="z-30 p-2 mt-3 shadow dropdown-content menu rounded-box menu-sm w-52 bg-base-100"
         >
             <li>
                 {user ? 

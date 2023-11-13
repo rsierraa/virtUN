@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@prisma/client";
-import { use, useCallback, useEffect, useState , createContext, useContext} from "react";
+import { useCallback, useEffect, useState , createContext, useContext} from "react";
+import CartProvider from "../providers/CartProvider";
 
 type CartContextType = {
   cartProducts: Product[] | null;
@@ -12,7 +13,6 @@ interface ProductCardProps {
 }
 
 export const CartContext = createContext<CartContextType | null>(null);
-
 interface Props {
   [propName: string]: any;
 }
@@ -32,18 +32,26 @@ export const CartContextProvider = (props: Props) => {
     setCartProducts(cartProducts);
   }, []);
 
-  const handleSetPaymentIntent = useCallback((val:string|null)=>{
-    setPaymentIntent(val);
-    localStorage.setItem("resPaymentIntent", JSON.stringify(val));
-  },[]);
+  useEffect(() => {
+    localStorage.setItem("resPaymentIntent", JSON.stringify(paymentIntent));
+  }, [paymentIntent]);
 
-  const value = {
+
+  const handleSetPaymentIntent = useCallback((val: String | null) => {
+      setPaymentIntent(val);
+      localStorage.setItem("resPaymentIntent", JSON.stringify(val));
+    },[]);
+
+  const value: CartContextType = {
     cartProducts,
     paymentIntent,
-    handleSetPaymentIntent,
+    handleSetPaymentIntent
   };
-  return <ProductCard product={value}/>;
-
+  return (
+    <CartContext.Provider value={{ cartProducts, paymentIntent, handleSetPaymentIntent }}>
+      {props.children}
+    </CartContext.Provider>
+  );
 };
 
 export const useCart = () => {
