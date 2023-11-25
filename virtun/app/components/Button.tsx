@@ -19,12 +19,33 @@ const Button: React.FC<ButtonProps> = ({
     outline,
     small,
     custom,
-    icon,
+    icon: Icon,
     onClick
 }) => {
-    return ( <div>
+    return ( <button
+    disabled={disabled}
+        className={`
+            disabled:opacity-70
+            disabled:cursor-not-allowed
+            rounded-md
+            hover:opacity-80
+            transition
+            w-full
+            border-slate-700
+            flex
+            items-center
+            justify-center
+            gap-2
+            ${outline? "bg-white" : "bg-slate-700"}
+            ${outline ? "text-slate-700" : "text-white"}
+            ${small ? "px-2 py-1 text-sm border-[1px] font-light" : "px-4 py-2 text-md font-semibold border-2"}
+            ${custom ? custom : ""}
+            `}
+    >
+        {Icon && <Icon size={24}/>}
 
-    </div> );
+        {label}
+    </button> );
 }
  
 export default Button;
