@@ -22,6 +22,7 @@ model Account {
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@unique([provider, providerAccountId])
 }
 
@@ -36,6 +37,46 @@ model User {
   updatedAt      DateTime  @updatedAt
   role           Role      @default(USER)
   accounts       Account[]
+  Order          Order[]
+}
+
+model Order {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String            @db.ObjectId
+  amount          Float
+  currency        String
+  status          String
+  deliveryStatus  String?
+  createDate      DateTime          @default(now())
+  paymentIntentId String            @unique
+  products        CartProductType[]
+  address         Address?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+type CartProductType {
+  id          String
+  name        String
+  description String
+  price       Float
+  category    String
+  image       Image
+  quantity    Int
+}
+
+type Image {
+  color     String
+  colorCode String
+  image     String
+}
+
+type Address {
+  city        String
+  country     String
+  line1       String
+  line2       String
+  postal_code String
 }
 
 enum Role {

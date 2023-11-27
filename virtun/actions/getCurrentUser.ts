@@ -14,16 +14,15 @@ export async function getCurrentUser() {
     const curretUser = await prisma.user.findUnique({
       where: {
         email: session?.user?.email
-      }
+      },
     });
     if (!curretUser) return null
     return{
       ...curretUser,
       createdAt: curretUser.createdAt.toISOString(),
       updatedAt: curretUser.updatedAt.toISOString(),
-      emailVerified: curretUser.emailVerified?.toISOString() || null,
+      emailVerified: curretUser.emailVerified?.toString() || null,
     }
-    return session?.user
   }catch(error:any){
     return null
   };

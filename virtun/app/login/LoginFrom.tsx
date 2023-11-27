@@ -10,11 +10,11 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-// import { SafeUser } from "@/types";
+import { SafeUser } from "@/types";
 
 
 interface LoginFormProps {
-  currentUser: any;
+  currentUser: SafeUser | null;
 }
 const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
   const [isLoading, setIsLoading] = useState(false);
