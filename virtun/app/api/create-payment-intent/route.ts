@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     orderData.paymentIntentId = paymentIntent.id;
 
     await prisma.order.create({
-      data: orderData
+      data: orderData,
     })
     return NextResponse.json({ paymentIntent } )
   }
