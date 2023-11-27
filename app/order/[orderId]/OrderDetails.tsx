@@ -28,11 +28,11 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
       </div>
       <div>Order ID: {order.id}</div>
       <div>
-        Total Amount:{" "}
+        Total:{" "}
         <span className="font-bold">{formatPrice(order.amount)}</span>
       </div>
       <div className="flex gap-2 items-center">
-        <div>Payment status:</div>
+        <div>Estado de Pago</div>
         <div>
           {order.status === "pending" ? (
             <Status
@@ -54,7 +54,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <div>Delivery status:</div>
+        <div>Estado de entrega:</div>
         <div>
           {order.deliveryStatus === "pending" ? (
             <Status
@@ -84,7 +84,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
       </div>
       <div>Date: {moment(order.createdDate).fromNow()}</div>
       <div>
-        <h2 className="font-semibold mt-4 mb-2">Products Ordered</h2>
+        <h2 className="font-semibold mt-4 mb-2">Pedido Hecho</h2>
         <div
           className="grid
         grid-cols-5
@@ -94,9 +94,9 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
         items-center
         "
         >
-          <div className="col-span-2 justify-self-start">PRODUCT</div>
-          <div className="justify-self-center">PRICE</div>
-          <div className="justify-self-center">QUANTITY</div>
+          <div className="col-span-2 justify-self-start">PRODUCTO</div>
+          <div className="justify-self-center">PRECIO</div>
+          <div className="justify-self-center">CANTIDAD</div>
           <div className="justify-self-end">TOTAL</div>
         </div>
         <div>

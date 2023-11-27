@@ -56,12 +56,12 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
     axios
       .post("/api/rating", ratingData)
       .then(() => {
-        toast.success("Rating submitted");
+        toast.success("Reseña enviada");
         router.refresh();
         reset();
       })
       .catch((error) => {
-        toast.error("Something went wrong when rating the product");
+        toast.error("Algo salió mal");
       })
       .finally(() => {
         setIsLoading(false);
@@ -84,7 +84,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
 
   return (
     <div className="flex flex-col gap-2 max-w-[500px]">
-      <Heading title="Rate this product" />
+      <Heading title="Califica este producto" />
       <Rating
         onChange={(event, newValue) => {
           setCustomValue("rating", newValue);
@@ -99,7 +99,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
         required
       ></Input>
       <Button
-        label={isLoading ? "Loading..." : "Rate Product"}
+        label={isLoading ? "Cargando..." : "Califica el producto"}
         onClick={handleSubmit(onSubmit)}
       />
     </div>

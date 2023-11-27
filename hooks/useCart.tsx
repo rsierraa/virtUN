@@ -79,7 +79,7 @@ export const CartContextProvider = (props: Props) => {
         updatedCart = [product];
       }
 
-      toast.success("Product added to cart");
+      toast.success("Producto agregado al carrito");
       localStorage.setItem("eShopCartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
@@ -98,7 +98,7 @@ export const CartContextProvider = (props: Props) => {
           "eShopCartItems",
           JSON.stringify(filteredProducts)
         );
-        toast.success("Product removed");
+        toast.success("Producto removido del carrito");
       }
     },
     [cartProducts]
@@ -109,7 +109,7 @@ export const CartContextProvider = (props: Props) => {
       let updatedCart;
 
       if (product.quantity === 20) {
-        return toast.error("Oops! Maximum reached.");
+        return toast.error("Oops! Máximo alcanzado.");
       }
 
       if (cartProducts) {
@@ -136,7 +136,7 @@ export const CartContextProvider = (props: Props) => {
       let updatedCart;
 
       if (product.quantity === 1) {
-        return toast.error("Oops! Minimum reached.");
+        return toast.error("Oops! Mínimo alcanzado.");
       }
 
       if (cartProducts) {
@@ -166,7 +166,7 @@ export const CartContextProvider = (props: Props) => {
 
   const handleSetPaymentIntent = useCallback(
     (val: string | null) => {
-      console.log("setting payment intent");
+      console.log("haciendo payment intent");
       setPaymentIntent(val);
       localStorage.setItem("eShopPaymentIntent", JSON.stringify(val));
     },
@@ -192,7 +192,7 @@ export const CartContextProvider = (props: Props) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (context === null) {
-    throw new Error("useCart must be used within a CartContextProvider");
+    throw new Error("useCart debe usarse con CartContextProvider");
   }
   return context;
 };

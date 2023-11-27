@@ -60,15 +60,15 @@ const LoginForm: React.FC<LoginUserProps> = ({ currentUser }) => {
   };
 
   if (currentUser) {
-    return <p className="text-center">Logged in. Redirecting...</p>;
+    return <p className="text-center">Loggeado... Redirigiendo</p>;
   }
 
   return (
     <>
-      <Heading title="Sign in to E~Shop" />
+      <Heading title="Inicia sesión en virtUN" />
       <Button
         outline
-        label="Continue with Google"
+        label="Continúa con Google"
         icon={AiOutlineGoogle}
         onClick={() => {
           signIn("google");
@@ -98,9 +98,9 @@ const LoginForm: React.FC<LoginUserProps> = ({ currentUser }) => {
         onClick={handleSubmit(onSubmit)}
       />
       <p className="text-sm">
-        Do not have an account?{" "}
+        No tienes cuenta?{" "}
         <Link className="underline" href="/register">
-          Sign Up
+          Regístrate
         </Link>
       </p>
     </>
