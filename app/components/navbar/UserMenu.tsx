@@ -64,11 +64,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <div>
                 <Link href="/orders">
-                  <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
+                  <MenuItem onClick={toggleOpen}>Tus Pedidos</MenuItem>
                 </Link>
                 {currentUser.role === "ADMIN" && (
                   <Link href="/admin">
-                    <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
+                    <MenuItem onClick={toggleOpen}>Panel de Admin</MenuItem>
                   </Link>
                 )}
                 <hr />
@@ -84,10 +84,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             ) : (
               <div>
                 <Link href="/login">
-                  <MenuItem onClick={toggleOpen}>Login</MenuItem>
+                  <MenuItem onClick={toggleOpen}>Iniciar Sesión</MenuItem>
                 </Link>
                 <Link href="/register">
-                  <MenuItem onClick={toggleOpen}>Register</MenuItem>
+                  <MenuItem onClick={toggleOpen}>Registrarse</MenuItem>
                 </Link>
               </div>
             )}
