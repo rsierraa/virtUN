@@ -30,7 +30,7 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
       py-4
       items-center"
     >
-      <div className="col-span-2 justify-self-start flex gap-2 md:gap-4">
+      <div className="flex col-span-2 gap-2 justify-self-start md:gap-4">
         <Link href={`/product/${item.id}`}>
           <div
             className="
@@ -40,7 +40,7 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
             "
           >
             <Image
-              src={item.selectedImage.image}
+              src={item.selectedImage.image?? ""}
               alt={item.name}
               fill
               className="object-contain"
@@ -52,7 +52,7 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
           <div>{item.selectedImage.color}</div>
           <div className="w-[70px]">
             <button
-              className="text-slate-500 underline"
+              className="underline text-slate-500"
               onClick={() => handleRemoveProductFromCart(item)}
             >
               Remove
@@ -73,7 +73,7 @@ const ItemContent: React.FC<ItemContentProps> = ({ item }) => {
           }}
         />
       </div>
-      <div className="justify-self-end font-semibold">
+      <div className="font-semibold justify-self-end">
         ${(item.price * item.quantity).toFixed(2)}
       </div>
     </div>
