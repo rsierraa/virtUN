@@ -48,7 +48,7 @@ const CheckoutClient = () => {
         })
         .catch((error) => {
           setError(true);
-          console.log("Error", error);
+          console.log("Error", error.message);
           toast.error("Something went wrong");
         });
     }
