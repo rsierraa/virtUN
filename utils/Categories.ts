@@ -7,23 +7,23 @@ import { MdOutlineKeyboard, MdStorefront, MdTv, MdWatch } from "react-icons/md";
 
 export const categories = [
   {
-    label: "Todo",
+    label: "All",
     icon: MdStorefront,
   },
   {
-    label: "SmartPhone",
+    label: "Phone",
     icon: AiFillMobile,
   },
   {
-    label: "Portátiles",
+    label: "Laptop",
     icon: AiOutlineLaptop,
   },
   {
-    label: "Pc de escritorio",
+    label: "Desktop",
     icon: AiOutlineDesktop,
   },
   {
-    label: "Relojes",
+    label: "Watch",
     icon: MdWatch,
   },
   {
@@ -31,7 +31,7 @@ export const categories = [
     icon: MdTv,
   },
   {
-    label: "Accesorios",
+    label: "Accesories",
     icon: MdOutlineKeyboard,
   },
 ];

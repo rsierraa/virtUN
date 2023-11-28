@@ -1,41 +1,41 @@
 export const colors = [
   {
-    color: "Negro",
+    color: "Black",
     colorCode: "#000000",
     image: null,
   },
   {
-    color: "Plata",
+    color: "Silver",
     colorCode: "#C0C0C0",
     image: null,
   },
   {
-    color: "Blanco",
+    color: "White",
     colorCode: "#FFFFFF",
     image: null,
   },
   {
-    color: "Gris",
+    color: "Gray",
     colorCode: "#808080",
     image: null,
   },
   {
-    color: "Rojo",
+    color: "Red",
     colorCode: "#FF0000",
     image: null,
   },
   {
-    color: "Oro",
+    color: "Gold",
     colorCode: " #FFD700",
     image: null,
   },
   {
-    color: "Azul",
+    color: "Blue",
     colorCode: " #0000FF",
     image: null,
   },
   {
-    color: "Grafito",
+    color: "Graphite",
     colorCode: " #383838",
     image: null,
   },

@@ -41,7 +41,7 @@ const SearchBar = () => {
         autoComplete="off"
         type="text"
         {...register("searchTerm")}
-        placeholder="Explora virtUN"
+        placeholder="Explore E~Shop"
         className="p-2
         border
         border-gray-300
@@ -62,7 +62,7 @@ const SearchBar = () => {
         rounded-r-md
         "
       >
-        Buscar
+        Search
       </button>
     </div>
   );

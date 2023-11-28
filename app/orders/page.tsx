@@ -7,7 +7,7 @@ import NullData from "../components/NullData";
 const Orders = async () => {
   const user = await getCurrentUser();
   if (!user) {
-    return <NullData title="Oops! Acceso denegado." />;
+    return <NullData title="Oops! Access denied." />;
   }
 
   const orders = await getOrdersByUserId(user.id);
