@@ -39,9 +39,9 @@ const SelectImage: React.FC<SelectImageProps> = ({
     >
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the image here ...</p>
+        <p>Pon tu imagen aquí ...</p>
       ) : (
-        <p>+ {item?.color} Image</p>
+        <p>+ {item?.color} Imagen</p>
       )}
     </div>
   );

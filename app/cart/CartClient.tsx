@@ -19,14 +19,14 @@ const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
   if (!cartProducts || cartProducts.length === 0) {
     return (
       <div className="flex flex-col items-center">
-        <div className="text-2xl">Your cart is empty</div>
+        <div className="text-2xl">Tu carrito está vacío</div>
         <div>
           <Link
             href={"/"}
             className="text-slate-500 flex items-center gap-1 mt-2"
           >
             <MdArrowBack />
-            <span>Start Shopping</span>
+            <span>Compra</span>
           </Link>
         </div>
       </div>
@@ -35,7 +35,7 @@ const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
 
   return (
     <div>
-      <h2 className="text-2xl text-center mb-8">Shopping Cart</h2>
+      <h2 className="text-2xl text-center mb-8">Carrito</h2>
       <div
         className="grid
       grid-cols-5
@@ -44,9 +44,9 @@ const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
       pb-2
       items-center"
       >
-        <div className="col-span-2 justify-self-start">PRODUCT</div>
-        <div className="justify-self-center">PRICE</div>
-        <div className="justify-self-center">QUANTITY</div>
+        <div className="col-span-2 justify-self-start">PRODUCTO</div>
+        <div className="justify-self-center">PRECIO</div>
+        <div className="justify-self-center">CANTIDAD</div>
         <div className="justify-self-end">TOTAL</div>
       </div>
       <div>
@@ -75,7 +75,7 @@ const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
             <span>${cartTotalAmount}</span>
           </div>
           <p className="text-slate-500">
-            Taxes and shipping calculated at checkout
+            IVA calculado al momento de la compra
           </p>
           <Button
             label={currentUser ? "Checkout" : "Login To Checkout"}
@@ -89,7 +89,7 @@ const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
             className="text-slate-500 flex items-center gap-1 mt-2"
           >
             <MdArrowBack />
-            <span>Continue Shopping</span>
+            <span>Continua comprando</span>
           </Link>
         </div>
       </div>

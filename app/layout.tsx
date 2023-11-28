@@ -9,8 +9,8 @@ import Footer from "./components/Footer";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
-  title: "Next13 E-commerce",
-  description: "Next13 fullstack e-commerce",
+  title: "virtUN",
+  description: "Tu chaza virtual de tecnología, al mejor precio, dentro de la Nacho",
 };
 
 export default async function RootLayout({

@@ -42,7 +42,7 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
               href="/"
               className={`${redressed.className} font-bold text-2xl`}
             >
-              E~Shop
+              virtUN
             </Link>
             <div className="hidden md:block">
               <SearchBar />

@@ -2,17 +2,17 @@ import Image from "next/image";
 
 const HomeBanner = () => {
   return (
-    <div className="banner relative bg-gradient-to-r from-sky-500 to-sky-700 mb-8">
+    <div className="banner relative bg-gradient-to-r from-green-500 to-green-700 mb-8">
       <div className="container mx-auto px-8 py-12 flex flex-col gap-2 md:flex-row items-center justify-evenly">
         <div className="mb-8 md:mb-0 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Summer Sale!
+          ¡Final de Semestre!
           </h1>
           <p className="text-lg md:text-xl text-white mb-2">
-            Enjoy discounts on selected items
+          Disfruta de descuentos en productos seleccionados
           </p>
           <p className="text-2xl md:text-5xl text-yellow-400 font-bold">
-            GET 50% OFF
+          HASTA 50% DE DESCUENTO
           </p>
         </div>
         <div className="w-1/3 relative aspect-video">
